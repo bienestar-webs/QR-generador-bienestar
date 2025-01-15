@@ -142,8 +142,75 @@
     
     displayTime();
     
+
+
+
+
+
+
+
+
+
+
+
+// ESCRIPT para abrir el modal con el QR ampliado
+
+
+
+
+
+function openModalWithQR() {
+    const canvas = document.getElementById('qr');
+
+    // Crear el modal y sus elementos
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
     
+    const content = document.createElement('div');
+    content.classList.add('modal-content');
+
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.textContent = '×';
+
+    closeButton.addEventListener('click', () => closeModal(modal));
+
+    const qrClone = document.createElement('canvas');
+    const ctx = qrClone.getContext('2d');
+    qrClone.width = canvas.width * 2;
+    qrClone.height = canvas.height * 2;
+    ctx.drawImage(canvas, 0, 0, qrClone.width, qrClone.height);
+
+    content.appendChild(closeButton);
+    content.appendChild(qrClone);
+    modal.appendChild(content);
+
+    document.body.appendChild(modal);
+
     
+    // Agregar evento para cerrar el modal cuando se hace clic fuera de él
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal(modal);
+        }
+    });
+}
+
+// Función para cerrar el modal con animación
+function closeModal(modal) {
+    modal.querySelector('.modal-content').style.animation = 'scaleDown 0.5s ease';
+    modal.style.animation = 'fadeOut 0.5s ease';
+    setTimeout(() => {
+        document.body.removeChild(modal);
+    }, 500);
+}
+
+// Asignar el evento al QR (Canvas) para abrir el modal
+document.getElementById('qr').addEventListener('click', openModalWithQR);
+
+
+
+
 
 
 // FIN //
