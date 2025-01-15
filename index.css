@@ -1,4 +1,3 @@
-
 .slow-zoomIn {
     
     animation-duration: 8s; /* Ajusta la duración a 8 segundos (puedes cambiar este valor) */
@@ -203,6 +202,7 @@ input, #escribe[type="text"] {
   border: 5px solid  #116faa;
   font-style: italic;
   border-radius: 50px;
+  cursor: -webkit-grabbing;
 }
 
 input::placeholder, #escribe::placeholder {
@@ -264,43 +264,38 @@ transform-origin: top left;
 
 
 
-
 #downloadLink {
 
 
-background: linear-gradient(to left,  transparent 50%, #116faa 50%);
-background-size: 200% 200%; /* Cambio aquí */
-background-position: right bottom; /* Cambio aquí */
-filter: brightness(100%);
-margin: -5px 65%;
-
-
-}
-
-
-#downloadLink:hover{
-
-
-color: rgb(255, 255, 255);
-text-shadow:  10px 10px 20px rgba(0, 0, 0, 8);
-border: 2px solid #116faa;
-font-family: 'Courier New', cursive;
-filter: brightness(100%);
-font-weight: bold;
-background-position: left bottom; /* Cambio aquí */
-transform: scale(1.2);
-transform-origin: top right;
-
-}
-
-
-
+  background: linear-gradient(to left,  transparent 50%, #116faa 50%);
+  background-size: 200% 200%; /* Cambio aquí */
+  background-position: right bottom; /* Cambio aquí */
+  filter: brightness(100%);
+  margin: -5px 65%;
+  
+  
+  }
+  
+  
+  #downloadLink:hover{
+  
+  
+  color: rgb(255, 255, 255);
+  text-shadow:  10px 10px 20px rgba(0, 0, 0, 8);
+  border: 2px solid #116faa;
+  font-family: 'Courier New', cursive;
+  filter: brightness(100%);
+  font-weight: bold;
+  background-position: left bottom; /* Cambio aquí */
+  transform: scale(1.2);
+  transform-origin: top right;
+  
+  }
 
 
 
 
-
-
+  
 #qr {
 
 
@@ -317,6 +312,7 @@ display: inline-block;
 width: 90px;
 display: block;
 margin: auto;
+cursor: zoom-in;
   
 }
 
@@ -339,6 +335,101 @@ margin: auto;
 
 
 
+
+
+
+/* Estilos para el modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.5s ease;
+  cursor: zoom-in;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: scaleUp 0.5s ease;
+}
+
+/* Estilos para el botón de cerrar */
+.close-button {
+  position: absolute;
+  top: -8px;
+  right: 5px;
+  font-size: 40px;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  background: none;
+  border: none;
+  outline: none;
+  transition: transform 0.3s ease;
+  cursor: grab;
+}
+
+/* Animación al pasar el mouse sobre el botón de cerrar */
+.close-button:hover {
+  transform: rotate(90deg) scale(1.2);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+      transform: scale(0.5);
+  }
+  to {
+      transform: scale(1);
+  }
+}
+
+@keyframes scaleDown {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(0.5);
+  }
+}
+
+
+
+
+
+
+
 #copyright {
 
 filter: brightness(150%);
@@ -349,8 +440,6 @@ font-style: italic;
 font-family: 'Courier New', cursive;
 
 }
-
-
 
 
 
@@ -367,7 +456,6 @@ font-family: 'Courier New', cursive;
   font-style: italic;
   font-family: 'TeXGyreCursor-Regular', monospace;
 }
-
 
 
 
@@ -400,139 +488,297 @@ font-family: 'Courier New', cursive;
 
 
 
+
+
+
+
+
+
+
 /* RESPOSIVE DE LA PAGINA */
 
 
 
-@media screen and (max-width: 768px) {
 
+
+
+
+/* Media query para pantallas de hasta 760px */
+
+
+@media screen and (max-width: 760px) {
 
 
   body, body::after {
-    
       background-attachment: scroll;
       background-size: cover; /* Use 'contain' if needed */
       background-position: center;
   }
 
-
-
-
   .animation-container {
-
-
-overflow: hidden;
-
-
-}
-
-
-
-.logo {
-  
-width: 150px;
- height: 150px;
-
-
-}
-
-
-
-h1 {
- 
-  font-size: 24px;
- 
-}
-
-
-
-
-#copyright {
-  
-font-size: 8px;
-
-
-}
-  
-  
-
-
-.bienestar {
-
-font-size: 16px;
-
-}
-
-
-
-
-#qr {  
-
-  margin-top: 50px;
-
-
-}
-
-
-
-
-.container {
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
-#qr {
-
-  order: 1; 
-
-
-}
-  
-
-
-
-#downloadLink {
-  
-  order: 1; 
-  margin-top: 50px; 
-  margin: 32.6%;  /* 32 hacia atras, mas a tu izquierda.. y 32 hacia adelante mas a tu derecha*/ 
-  margin-top: 80px;
-
-}
-
-
-
-
-#mensajeExito {
-
-  font-size: 16px;
-  left: 0%; /* Ajusta este valor según sea necesario */
-margin-left: 2%;
-  margin-top: 150px; /* Ajusta este valor según necesites */
-
-}
-  
-  
-
-
-  #error-message {
-
-  font-size: 16px;
-  margin: 0 auto; /* Centra el texto horizontalmente */
-  margin-left: 3px;
-  text-align: center; /* Alinea el texto al centro */
-  filter: brightness(200%);
-  position: fixed; /* Fija el mensaje en la posición especificada */
-  bottom: 80px; /* Posiciona el mensaje 50 píxeles por encima del borde inferior */
-  margin-bottom: 0px; /* Agrega un margen inferior para separar el texto del borde */
-
+      overflow: hidden;
   }
 
+  .logo {
+      width: 150px;
+      height: 150px;
+  }
 
+  h1 {
+      font-size: 24px;
+  }
+
+  #copyright {
+      font-size: 8px;
+  }
+
+  .bienestar {
+      font-size: 16px;
+  }
+
+  #qr {  
+      margin-top: 50px;
+  }
+
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #qr {
+      order: 1; 
+  }
+
+  #downloadLink {
+      order: 1; 
+      margin-top: 50px; 
+      margin: 32.6%;  /* 32 hacia atras, mas a tu izquierda.. y 32 hacia adelante mas a tu derecha*/ 
+      margin-top: 80px;
+  }
+
+  #mensajeExito {
+      font-size: 16px;
+      left: 0%; /* Ajusta este valor según sea necesario */
+      margin-left: 2%;
+      margin-top: 150px; /* Ajusta este valor según necesites */
+  }
+
+  #error-message {
+      font-size: 16px;
+      margin: 0 auto; /* Centra el texto horizontalmente */
+      margin-left: 3px;
+      text-align: center; /* Alinea el texto al centro */
+      filter: brightness(200%);
+      position: fixed; /* Fija el mensaje en la posición especificada */
+      bottom: 80px; /* Posiciona el mensaje 50 píxeles por encima del borde inferior */
+      margin-bottom: 0px; /* Agrega un margen inferior para separar el texto del borde */
+  }
+
+  .modal-content {
+      width: 90%;
+      padding: 15px;
+      border-radius: 8px;
+  }
+
+  .close-button {
+      top: -5px;
+      right: 5px;
+      font-size: 50px;
+  }
+
+  /* Ajustes para el canvas (QR) dentro del modal */
+  .modal-content canvas {
+      width: 80%;
+      height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media query para pantallas de hasta 480px */
+
+
+
+@media only screen and (max-width: 480px) {
+
+
+  body, body::after {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .animation-container {
+    overflow: hidden;
+  }
+
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  #copyright {
+    font-size: 7px;
+  }
+
+  .bienestar {
+    font-size: 14px;
+  }
+
+  #qr {
+    margin-top: 45px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #downloadLink {
+    order: 1;
+    margin-top: 50px;
+    margin: 25%;
+  }
+
+  #mensajeExito {
+    font-size: 14px;
+    margin-left: 1.5%;
+    margin-top: 130px;
+  }
+
+  #error-message {
+    font-size: 14px;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    bottom: 70px;
+  }
+
+  .modal-content {
+    width: 88%;
+    padding: 12px;
+    border-radius: 7px;
+  }
+
+  .close-button {
+    top: -4px;
+    right: 4px;
+    font-size: 45px;
+  }
+
+  .modal-content canvas {
+    width: 78%;
+    height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media query para pantallas de hasta 380px */
+
+
+@media only screen and (max-width: 380px) {
+  body, body::after {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .animation-container {
+    overflow: hidden;
+  }
+
+  .logo {
+    width: 90px;
+    height: 90px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  #copyright {
+    font-size: 6px;
+  }
+
+  .bienestar {
+    font-size: 12px;
+  }
+
+  #qr {
+    margin-top: 40px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #downloadLink {
+    order: 1;
+    margin-top: 40px;
+    margin: 20%;
+  }
+
+  #mensajeExito {
+    font-size: 12px;
+    margin-left: 1%;
+    margin-top: 120px;
+  }
+
+  #error-message {
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    bottom: 60px;
+  }
+
+  .modal-content {
+    width: 85%;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .close-button {
+    top: -4px;
+    right: 4px;
+    font-size: 40px;
+  }
+
+  .modal-content canvas {
+    width: 75%;
+    height: auto;
+  }
 }
 
 
